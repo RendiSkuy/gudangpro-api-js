@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
 // Koneksi ke MongoDB Atlas
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
-        console.log('Berhasil terhubung ke MongoDB Atlas');
+        console.log('Berhasil terhubung ke MongoDB Lokal'); // <-- Teks baru yang benar
         app.listen(PORT, () => console.log(`Server berjalan di http://localhost:${PORT}`));
     })
     .catch((error) => {
