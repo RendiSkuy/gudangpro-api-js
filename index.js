@@ -4,6 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path'; // <-- Tambahkan ini
 import { fileURLToPath } from 'url'; // <-- Tambahkan ini
+import authRoutes from './routes/auth.routes.js';
 
 import barangRoutes from './routes/barang.routes.js';
 
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Rute untuk API (tetap sama)
 app.use('/api/barang', barangRoutes);
+app.use('/api/auth', authRoutes);
 
 // Rute utama untuk menyajikan file index.html
 app.get('/', (req, res) => {
