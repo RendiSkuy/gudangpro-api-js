@@ -1,14 +1,16 @@
 import express from 'express';
-import { getBarang, createBarang, updateBarang, deleteBarang } from '../controllers/barang.controller.js';
+import { 
+    getAllBarang, 
+    createBarang, 
+    updateBarang, 
+} from '../controllers/barang.controller.js';
+import protectRoute from '../middleware/auth.js';
 
 const router = express.Router();
 
-router.route('/')
-    .get(getBarang)
-    .post(createBarang);
+router.get('/', protectRoute, getAllBarang);
+router.post('/', protectRoute, createBarang);
+router.put('/:id', protectRoute, updateBarang);
 
-router.route('/:id')
-    .put(updateBarang)
-    .delete(deleteBarang);
 
 export default router;
